@@ -1,10 +1,10 @@
 {
   "name": "nodejs-api-boilerplate",
   "version": "1.0.0",
-  "description": "![](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?w=365)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^2.0.1",
-    "express": "^4.16.3"
-  }
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.2.8",
+    "sinon": "^6.1.5"
+  },
+  "devDependencies": {}
 }
