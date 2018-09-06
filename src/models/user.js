@@ -41,16 +41,16 @@ const UserSchema = new Schema({
 
 
 // Hash password before saving
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', (next) => {
     const user = this;
     const SALT_FACTOR = 5;
   
     if (!user.isModified('password')) return next();
   
-    bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
+    bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
       if (err) return next(err);
   
-      bcrypt.hash(user.password, salt, null, function(err, hash) {
+      bcrypt.hash(user.password, salt, null, (err, hash) => {
         if (err) return next(err);
         user.password = hash;
         next();
@@ -59,8 +59,8 @@ UserSchema.pre('save', function(next) {
 });
   
 // compare hashed password
-UserSchema.methods.comparePassword = function(origPassword, next) {
-bcrypt.compare(origPassword, this.password, function(err, isMatch) {
+UserSchema.methods.comparePassword = (origPassword, next) => {
+bcrypt.compare(origPassword, this.password, (err, isMatch) => {
     if (err) {
     return next(err);
     }

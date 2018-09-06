@@ -1,4 +1,5 @@
-![](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?w=365) 
+![](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?w=365)
+![](https://zdnet3.cbsistatic.com/hub/i/r/2018/02/16/8abdb3e1-47bc-446e-9871-c4e11a46f680/resize/370xauto/8a68280fd20eebfa7789cdaa6fb5eff1/mongo-db-logo.png)
 
 # NodeJS API boilerpate
 Aplicación base para una API REST en NodeJS.

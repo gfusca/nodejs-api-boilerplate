@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
+    "test": "./node_modules/mocha/bin/mocha \"test/**/*.spec.js\"",
+    "test-coverage": "./node_modules/nyc/bin/nyc.js mocha \"test/**/*.spec.js\" --timeout=3000",
     "start": "node src/app.js"
   },
   "repository": {
@@ -24,5 +25,8 @@
     "mongoose": "^5.2.8",
     "sinon": "^6.1.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nyc": "^13.0.1",
+    "supertest": "^3.2.0"
+  }
 }
