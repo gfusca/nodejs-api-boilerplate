@@ -30,7 +30,7 @@ const config = {
       "JWT_TIMEOUT": process.env.JWT_TIMEOUT || 86400
     },
     "VERSION": process.env.API_VERSION || "v1",
-    "MONGO_URL": process.env.MONGO_URL || "mongodb://root:mag.root@localhost:27107/magnetico",
+    "MONGO_URL": process.env.MONGO_URL || "mongodb://root:password@localhost:27107/database",
 }
 ```
 

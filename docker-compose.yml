@@ -11,8 +11,7 @@ services:
       PORT: 3000
       REDIS_URL: "redis://redis:6379/0"
       JWT_SECRET: "958f24c13fac8d23b9b7a09f22088bb6b01743143e2ffad870a27da29121fd4a"
-      MYSQL_URL: "mysql://magnetico:mag.mysql@mysql:3306/magnetico"
-      MONGO_URL: "mongodb://magnetico:mag.mongodb@mongo:27017/magnetico?authSource=admin"
+      MONGO_URL: "mongodb://root:iamroot@mongo:27017/db?authSource=admin"
     ports:
       - "3000:3000"
     links:
@@ -22,13 +21,6 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: magnetico
-      MONGO_INITDB_ROOT_PASSWORD: mag.mongodb
-      MONGO_INITDB_DATABASE: magnetico
-  mysql:
-     image: mysql:5.7
-     environment:
-       MYSQL_ROOT_PASSWORD: not_a_password
-       MYSQL_DATABASE: magnetico
-       MYSQL_USER: magnetico
-       MYSQL_PASSWORD: mag.mysql
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: iamroot
+      MONGO_INITDB_DATABASE: db
