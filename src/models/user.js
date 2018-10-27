@@ -41,7 +41,7 @@ const UserSchema = new Schema({
 
 
 // Hash password before saving
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) => {
     const user = this;
     const SALT_FACTOR = 5;
   
@@ -59,7 +59,7 @@ UserSchema.pre('save', (next) => {
 });
   
 // compare hashed password
-UserSchema.methods.comparePassword = (origPassword, next) => {
+UserSchema.methods.comparePassword = function(origPassword, next) {
 bcrypt.compare(origPassword, this.password, (err, isMatch) => {
     if (err) {
     return next(err);
