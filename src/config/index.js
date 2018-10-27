@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config()
+}
+
 const config = {
     "server": {
       "PORT": process.env.PORT || 8088,
