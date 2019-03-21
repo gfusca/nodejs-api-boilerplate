@@ -41,7 +41,7 @@ const UserSchema = new Schema({
 
 
 // Hash password before saving
-UserSchema.pre('save', function(next) => {
+UserSchema.pre('save', function(next) {
     const user = this;
     const SALT_FACTOR = 5;
   
