@@ -1,10 +1,32 @@
+sudo: required
+
+services:
+  - docker
 language: node_js
 node_js: 
   - "stable"
 cache:
   directories:
     - "node_modules"
+
+before_install:
+  # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries (dockerhub + heroku)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 install:
   - npm install
 script:
   - npm test
+  - docker build -t gfusca/nodejs-boilerplate .
+  - docker tag gfusca/nodejs-boilerplate  registry.heroku.com/$HEROKU_APP_NAME/web
+
+deploy:
+  provider: script
+  script: 
+    # push to dockerhub & heroku
+    docker push  gfusca/nodejs-boilerplate 
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+  on:
+    branch: master
