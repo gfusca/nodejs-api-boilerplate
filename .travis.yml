@@ -26,7 +26,6 @@ deploy:
   provider: script
   script: 
     # push to dockerhub & heroku
-    docker push  gfusca/nodejs-boilerplate 
-    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    docker push gfusca/nodejs-boilerplate  registry.heroku.com/$HEROKU_APP_NAME/web
   on:
     branch: master
