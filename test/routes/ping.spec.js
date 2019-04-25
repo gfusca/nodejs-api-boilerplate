@@ -10,6 +10,6 @@ describe('Ping service test case', function () {
   it('should send ping message', function(done) {
     agent
     .get(`/${VERSION}/ping`)
-    .expect('pong', done);
+    .expect('its a pong', done);
   });
 })
